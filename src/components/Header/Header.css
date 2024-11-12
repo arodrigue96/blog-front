@@ -1,10 +1,14 @@
 .main-header {
+  background-color: #fe6f00;
+  color: #333;
+}
+
+.header-container {
   display: flex;
   align-items: center;
   gap: 20px;
-  background-color: #fe6f00;
-  color: #333;
-  height: 110px;
+  margin: 0 auto;
+  max-width: 1100px;
   padding: 10px;
 }
 
