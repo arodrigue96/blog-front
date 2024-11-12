@@ -1,0 +1,14 @@
+.main-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: #fe6f00;
+  color: #333;
+  height: 110px;
+  padding: 10px;
+}
+
+.main-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
