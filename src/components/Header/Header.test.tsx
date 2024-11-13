@@ -1,13 +1,18 @@
 import { render, screen } from "@testing-library/react";
 import Header from "./Header";
 import NavMenu from "../NavMenu/NavMenu";
+import { MemoryRouter } from "react-router-dom";
 
 describe("Given the Header component", () => {
   describe("When rendered", () => {
     test("Then it should show 'Aniol's Backoffice Blog' inside a heading", () => {
       const appTitleText = /aniol's Backoffice Blog/i;
 
-      render(<Header />);
+      render(
+        <MemoryRouter>
+          <Header />
+        </MemoryRouter>,
+      );
 
       const appTitle = screen.getByRole("heading", {
         name: appTitleText,
@@ -20,7 +25,11 @@ describe("Given the Header component", () => {
       const postsPageLinkText = /posts list/i;
       const addNewPostLinkText = /add new post/i;
 
-      render(<NavMenu />);
+      render(
+        <MemoryRouter>
+          <NavMenu />
+        </MemoryRouter>,
+      );
 
       const postsPageLink = screen.getByRole("link", {
         name: postsPageLinkText,
