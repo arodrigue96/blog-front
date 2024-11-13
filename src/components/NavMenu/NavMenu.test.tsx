@@ -1,21 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import Header from "./Header";
-import NavMenu from "../NavMenu/NavMenu";
+import NavMenu from "./NavMenu";
 
-describe("Given the Header component", () => {
+describe("Given the NavMenu component", () => {
   describe("When rendered", () => {
-    test("Then it should show 'Aniol's Backoffice Blog' inside a heading", () => {
-      const appTitleText = /aniol's Backoffice Blog/i;
-
-      render(<Header />);
-
-      const appTitle = screen.getByRole("heading", {
-        name: appTitleText,
-      });
-
-      expect(appTitle).toBeInTheDocument();
-    });
-
     test("Then it should show two links 'Posts list' and 'Add new post'", () => {
       const postsPageLinkText = /posts list/i;
       const addNewPostLinkText = /add new post/i;
