@@ -1,5 +1,9 @@
+:root {
+  --container-max-width: 1100px;
+}
+
 .container {
   margin: 0 auto;
-  max-width: 1100px;
+  max-width: var(--container-max-width);
   padding: 10px;
 }
