@@ -9,7 +9,7 @@ const NavMenu: React.FC = () => {
         </a>
       </li>
       <li className="nav-menu__container">
-        <a href="" className="nav-menu__link">
+        <a href="addNewPost.html" className="nav-menu__link">
           <span>Add new post</span>
         </a>
       </li>
