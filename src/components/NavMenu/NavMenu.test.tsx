@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import NavMenu from "./NavMenu";
+import { MemoryRouter } from "react-router-dom";
 
 describe("Given the NavMenu component", () => {
   describe("When rendered", () => {
@@ -7,7 +8,11 @@ describe("Given the NavMenu component", () => {
       const postsPageLinkText = /posts list/i;
       const addNewPostLinkText = /add new post/i;
 
-      render(<NavMenu />);
+      render(
+        <MemoryRouter>
+          <NavMenu />
+        </MemoryRouter>,
+      );
 
       const postsPageLink = screen.getByRole("link", {
         name: postsPageLinkText,

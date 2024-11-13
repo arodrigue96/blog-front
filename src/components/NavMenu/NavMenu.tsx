@@ -1,17 +1,18 @@
+import { NavLink } from "react-router-dom";
 import "./NavMenu.css";
 
 const NavMenu: React.FC = () => {
   return (
     <ul className="nav-menu">
       <li className="nav-menu__container">
-        <a href="index.html" className="nav-menu__link">
+        <NavLink to="/home">
           <span>Posts list</span>
-        </a>
+        </NavLink>
       </li>
       <li className="nav-menu__container">
-        <a href="addNewPost.html" className="nav-menu__link">
+        <NavLink to="/new-post">
           <span>Add new post</span>
-        </a>
+        </NavLink>
       </li>
     </ul>
   );
