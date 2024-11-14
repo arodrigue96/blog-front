@@ -3,18 +3,16 @@ import "./NavMenu.css";
 
 const NavMenu: React.FC = () => {
   return (
-    <ul className="nav-menu">
-      <li className="nav-menu__container">
-        <NavLink to="/home">
-          <span>Posts list</span>
-        </NavLink>
-      </li>
-      <li className="nav-menu__container">
-        <NavLink to="/new-post">
-          <span>Add new post</span>
-        </NavLink>
-      </li>
-    </ul>
+    <nav>
+      <ul className="nav-menu">
+        <li>
+          <NavLink to="/home">Posts list</NavLink>
+        </li>
+        <li>
+          <NavLink to="/new-post">Add new post</NavLink>
+        </li>
+      </ul>
+    </nav>
   );
 };
 
