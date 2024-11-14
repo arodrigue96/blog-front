@@ -6,13 +6,6 @@ const Header: React.FC = () => {
     <header className="main-header">
       <div className="header-container">
         <div className="header-container__title">
-          <img
-            className="logo"
-            src="/logo.svg"
-            alt="Blog logo"
-            width={80}
-            height={80}
-          />
           <h1 className="main-title">Aniol's Backoffice Blog</h1>
         </div>
         <NavMenu />
