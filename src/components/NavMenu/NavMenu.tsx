@@ -8,9 +8,6 @@ const NavMenu: React.FC = () => {
         <li>
           <NavLink to="/home">Posts list</NavLink>
         </li>
-        <li>
-          <NavLink to="/new-post">Add new post</NavLink>
-        </li>
       </ul>
     </nav>
   );

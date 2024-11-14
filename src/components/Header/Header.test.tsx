@@ -23,7 +23,6 @@ describe("Given the Header component", () => {
 
     test("Then it should show two links 'Posts list' and 'Add new post'", () => {
       const postsPageLinkText = /posts list/i;
-      const addNewPostLinkText = /add new post/i;
 
       render(
         <MemoryRouter>
@@ -35,12 +34,7 @@ describe("Given the Header component", () => {
         name: postsPageLinkText,
       });
 
-      const addNewPostLink = screen.getByRole("link", {
-        name: addNewPostLinkText,
-      });
-
       expect(postsPageLink).toBeInTheDocument();
-      expect(addNewPostLink).toBeInTheDocument();
     });
   });
 });
