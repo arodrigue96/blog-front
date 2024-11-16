@@ -9,5 +9,8 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
     setupFiles: ["src/setupTest.ts"],
+    coverage: {
+      include: ["src/**/*.tsx", "!src/main.tsx", "!src/router"],
+    },
   },
 });
