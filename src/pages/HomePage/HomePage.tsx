@@ -1,4 +1,4 @@
-import PostCard from "../../posts/PostCard/PostCard";
+import PostCard from "../../post/PostCard/PostCard";
 
 const HomePage: React.FC = () => {
   return (
