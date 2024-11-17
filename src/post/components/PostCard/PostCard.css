@@ -4,15 +4,28 @@
   align-items: center;
   border: 1px solid #000;
   border-radius: 5px;
+  padding: 20px;
   gap: 10px;
+
+  @media (width >= 600px) {
+    height: 100%;
+    gap: 20px;
+  }
 }
 
 .post-card__image {
   width: 100%;
   height: auto;
   overflow: hidden;
+  border-radius: 5px;
 }
 
-.post-card__title {
+.post-card__content {
   padding: 10px;
+  text-align: start;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  -webkit-box-orient: vertical;
 }

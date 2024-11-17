@@ -11,7 +11,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
   return (
     <li>
       <article className="post-card">
-        <h2 className="post-card__title">{post.title}</h2>
+        <h2>{post.title}</h2>
         <img
           className="post-card__image"
           src={post.imageUrl}
@@ -19,6 +19,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
           width={298}
           height={199}
         />
+        <p className="post-card__content">{post.content}</p>
       </article>
     </li>
   );
