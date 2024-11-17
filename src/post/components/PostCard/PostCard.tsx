@@ -6,9 +6,11 @@ interface PostCardProps {
 
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
   return (
-    <article className="post-card">
-      <h2 className="post-card__title">{post.title}</h2>
-    </article>
+    <li>
+      <article className="post-card">
+        <h2 className="post-card__title">{post.title}</h2>
+      </article>
+    </li>
   );
 };
 
