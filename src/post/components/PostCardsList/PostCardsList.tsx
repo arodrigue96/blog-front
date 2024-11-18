@@ -10,9 +10,7 @@ const PostCardsList: React.FC<PostCardsListProps> = ({ posts }) => {
   return (
     <ul className="post-cards-list">
       {posts.map((post) => {
-        return (
-          <PostCard key={post.id} post={post} imageUrl={""} altImageText={""} />
-        );
+        return <PostCard key={post.id} post={post} />;
       })}
     </ul>
   );
