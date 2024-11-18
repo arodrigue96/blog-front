@@ -1,5 +1,6 @@
 import { Post } from "../../client/types";
 import PostCard from "../PostCard/PostCard";
+import "./PostCardsList.css";
 
 interface PostCardsListProps {
   posts: Post[];
@@ -7,9 +8,11 @@ interface PostCardsListProps {
 
 const PostCardsList: React.FC<PostCardsListProps> = ({ posts }) => {
   return (
-    <ul>
+    <ul className="post-cards-list">
       {posts.map((post) => {
-        return <PostCard key={post.id} post={post} />;
+        return (
+          <PostCard key={post.id} post={post} imageUrl={""} altImageText={""} />
+        );
       })}
     </ul>
   );

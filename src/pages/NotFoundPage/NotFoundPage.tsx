@@ -6,7 +6,7 @@ const NotFoundPage: React.FC = () => {
       <h2 className="page-not-found__title">🙅🏼‍♂️ Page not found! 🙅🏼‍♂️</h2>
       <img
         className="page-not-found__image"
-        src="/carbassot.webp"
+        src="/images/carbassot.webp"
         alt={
           "Illustration of a page not found error with a pumpkin-shaped character"
         }
