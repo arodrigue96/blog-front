@@ -17,7 +17,7 @@ describe("Given the PostCard component", () => {
 
       const expectedTitle = /Exploring the Future of AI/i;
 
-      render(<PostCard post={post} imageUrl={""} altImageText={""} />);
+      render(<PostCard post={post} />);
 
       const postCardTitle = await screen.findByRole("heading", {
         name: expectedTitle,
