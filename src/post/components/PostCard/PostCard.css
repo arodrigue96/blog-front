@@ -29,3 +29,10 @@
   line-clamp: 5;
   -webkit-box-orient: vertical;
 }
+
+.post-card__info {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 5px;
+}

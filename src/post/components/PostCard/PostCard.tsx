@@ -20,6 +20,10 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
           height={199}
         />
         <p className="post-card__content">{post.content}</p>
+        <div className="post-card__info">
+          <h3>{`Author: ${post.author}`}</h3>
+          <p>{`Date: ${post.date}`}</p>
+        </div>
       </article>
     </li>
   );
