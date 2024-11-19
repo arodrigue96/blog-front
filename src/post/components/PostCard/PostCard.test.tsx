@@ -3,27 +3,36 @@ import PostCard from "./PostCard";
 import { Post } from "../../client/types";
 
 describe("Given the PostCard component", () => {
-  describe("When it receives a post with the title 'Exploring the Future of AI'", () => {
-    test("Then it should show the post's title 'Exploring the Future of AI' inside a heading", async () => {
-      const post: Post = {
-        title: "Exploring the Future of AI",
-        altImageText: "",
-        author: "",
-        date: new Date(),
-        content: "",
-        id: 1,
-        imageUrl: "",
-      };
+  describe("When it receives a post with the title 'Exploring the Cryptocurrencies'", () => {
+    const bitcoin: Post = {
+      id: 1,
+      title: "Exploring the Cryptocurrencies",
+      imageUrl: "",
+      altImageText: "Bitcoin in all time high",
+      content: "",
+      author: "",
+      date: new Date(),
+    };
+    test("Then it should show the post's title 'Exploring the Cryptocurrencies' inside a heading", async () => {
+      const expectedTitle = /Exploring the Cryptocurrencies/i;
 
-      const expectedTitle = /Exploring the Future of AI/i;
+      render(<PostCard post={bitcoin} />);
 
-      render(<PostCard post={post} />);
-
-      const postCardTitle = await screen.findByRole("heading", {
+      const postCardTitle = await screen.getByRole("heading", {
         name: expectedTitle,
       });
 
       expect(postCardTitle).toBeInTheDocument();
+    });
+
+    test("Then it should show an image with 'Bitcoin in all time high' alternative text", async () => {
+      const expectedAltImage = /Bitcoin in all time high/i;
+
+      render(<PostCard post={bitcoin} />);
+
+      const postCardAltImage = await screen.getByAltText(expectedAltImage);
+
+      expect(postCardAltImage).toBeInTheDocument();
     });
   });
 });

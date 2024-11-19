@@ -3,43 +3,60 @@ import { Post } from "../../client/types";
 import PostCardsList from "./PostCardsList";
 
 describe("Given the PostCardsList component", () => {
-  describe("When it renders 2 posts with the title 'Exploring the Future of AI' and 'Innovation in Renewable Energy'", () => {
-    test("Then it should show the posts' titles 'Exploring the Future of AI' and 'Innovation in Renewable Energy'inside their headings", async () => {
-      const post1: Post = {
-        title: "Exploring the Future of AI",
-        altImageText: "",
-        author: "",
-        date: new Date(),
-        content: "",
-        id: 1,
-        imageUrl: "",
-      };
+  describe("When it renders 2 posts with the title 'Exploring the Cryptocurrencies' and 'Feed the animals'", () => {
+    const bitcoin: Post = {
+      id: 1,
+      title: "Exploring the Cryptocurrencies",
+      imageUrl: "",
+      altImageText: "Bitcoin in all time high",
+      content: "",
+      author: "",
+      date: new Date(),
+    };
 
-      const post2: Post = {
-        title: "Innovation in Renewable Energy",
-        altImageText: "",
-        author: "",
-        date: new Date(),
-        content: "",
-        id: 2,
-        imageUrl: "",
-      };
+    const animals: Post = {
+      id: 2,
+      title: "Feed the animals",
+      imageUrl: "",
+      altImageText: "A happy dog eating",
+      content: "",
+      author: "",
+      date: new Date(),
+    };
 
-      const expectedTitle1 = /Exploring the Future of AI/i;
-      const expectedTitle2 = /Innovation in Renewable Energy/i;
+    test("Then it should show the posts' titles 'Exploring the Cryptocurrencies' and 'Feed the animals' inside their headings", async () => {
+      const expectedBitcoinTitle = /Exploring the Cryptocurrencies/i;
+      const expectedTitle2 = /Feed the animals/i;
 
-      render(<PostCardsList posts={[post1, post2]} />);
+      render(<PostCardsList posts={[bitcoin, animals]} />);
 
-      const postCardTitle1 = await screen.findByRole("heading", {
-        name: expectedTitle1,
+      const postCardTitle1 = await screen.getByRole("heading", {
+        name: expectedBitcoinTitle,
       });
 
-      const postCardTitle2 = await screen.findByRole("heading", {
+      const expectedAnimalsTitle = await screen.getByRole("heading", {
         name: expectedTitle2,
       });
 
       expect(postCardTitle1).toBeInTheDocument();
-      expect(postCardTitle2).toBeInTheDocument();
+      expect(expectedAnimalsTitle).toBeInTheDocument();
+    });
+
+    test("Then it should show the images 'Bitcoin in all time high' 'A happy dog eating' alternatives texts", async () => {
+      const expectedBitcoinAltImage = /Bitcoin in all time high/i;
+      const expectedAnimalsAltImage = /A happy dog eating/i;
+
+      render(<PostCardsList posts={[bitcoin, animals]} />);
+
+      const bitcoinPostCardAltImage = await screen.getByAltText(
+        expectedBitcoinAltImage,
+      );
+      const animalsPostCardAltImage = await screen.getByAltText(
+        expectedAnimalsAltImage,
+      );
+
+      expect(bitcoinPostCardAltImage).toBeInTheDocument();
+      expect(animalsPostCardAltImage).toBeInTheDocument();
     });
   });
 });

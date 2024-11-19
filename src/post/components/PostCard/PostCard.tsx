@@ -1,5 +1,4 @@
 import { Post } from "../../client/types";
-import moment from "moment";
 import "./PostCard.css";
 
 interface PostCardProps {
@@ -9,8 +8,7 @@ interface PostCardProps {
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
   const { title, author, altImageText, imageUrl, date, content } = post;
 
-  const formattedDate = moment(date).format("DD/MM/YY");
-
+  const formattedDate = new Date(date).toLocaleDateString();
   return (
     <li>
       <article className="post-card">
