@@ -2,7 +2,8 @@ name: Testing
 
 on: push
 
-env: "${{import.meta.env.VITE_API_URL}}"
+env:
+  VITE_API_URL: ${{ vars.VITE_API_URL }}
 
 jobs:
   test:

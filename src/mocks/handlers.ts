@@ -18,7 +18,6 @@ export const handlers = [
           content: "",
           imageUrl: "",
         },
-
         {
           id: 2,
           title: "The Reactor Project",
