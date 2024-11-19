@@ -13,6 +13,7 @@ describe("Given the PostCard component", () => {
       author: "",
       date: new Date(),
     };
+
     test("Then it should show the post's title 'Exploring the Cryptocurrencies' inside a heading", async () => {
       const expectedTitle = /Exploring the Cryptocurrencies/i;
 
