@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Post } from "../../client/types";
+import { Post } from "../../types";
 import PostCardsList from "./PostCardsList";
 
 describe("Given the PostCardsList component", () => {

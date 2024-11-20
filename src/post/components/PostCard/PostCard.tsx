@@ -1,4 +1,4 @@
-import { Post } from "../../client/types";
+import { Post } from "../../types";
 import "./PostCard.css";
 
 interface PostCardProps {

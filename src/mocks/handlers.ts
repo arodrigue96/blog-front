@@ -1,5 +1,5 @@
 import { http, HttpResponse } from "msw";
-import { Post } from "../post/client/types";
+import { Post } from "../post/types";
 
 if (!import.meta.env.VITE_API_URL) {
   throw new Error(".Env VITE_API_URL is not defined");

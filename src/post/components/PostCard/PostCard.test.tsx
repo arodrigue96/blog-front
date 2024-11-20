@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import PostCard from "./PostCard";
-import { Post } from "../../client/types";
+import { Post } from "../../types";
 
 describe("Given the PostCard component", () => {
   describe("When it receives a post with the title 'Exploring the Cryptocurrencies'", () => {

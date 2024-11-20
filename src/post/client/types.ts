@@ -1,9 +1,5 @@
-export interface Post {
-  id: number;
-  title: string;
-  date: Date;
-  author: string;
-  content: string;
-  imageUrl: string;
-  altImageText: string;
+import { Post } from "../types";
+
+export interface PostClientStructure {
+  getPosts(): Promise<{ posts: Post[] }>;
 }
