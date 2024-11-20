@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { getPosts } from "../../post/client";
-import { Post } from "../../post/client/types";
+import { Post } from "../../post/types";
 import PostCardsList from "../../post/components/PostCardsList/PostCardsList";
 import "./HomePage.css";
+import PostClient from "../../post/client/PostClient";
 
 const HomePage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -11,9 +11,9 @@ const HomePage: React.FC = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       setIsLoading(true);
-      const data = await getPosts();
+      const postsData = await new PostClient().getPosts();
 
-      setPosts(data.posts);
+      setPosts(postsData.posts);
       setIsLoading(false);
     };
 
