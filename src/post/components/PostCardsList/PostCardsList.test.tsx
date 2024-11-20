@@ -26,20 +26,20 @@ describe("Given the PostCardsList component", () => {
 
     test("Then it should show the posts' titles 'Exploring the Cryptocurrencies' and 'Feed the animals' inside their headings", async () => {
       const expectedBitcoinTitle = /Exploring the Cryptocurrencies/i;
-      const expectedTitle2 = /Feed the animals/i;
+      const expectedAnimalsTitle = /Feed the animals/i;
 
       render(<PostCardsList posts={[bitcoin, animals]} />);
 
-      const postCardTitle1 = await screen.getByRole("heading", {
+      const bitcoinPostCardTitle = await screen.getByRole("heading", {
         name: expectedBitcoinTitle,
       });
 
-      const expectedAnimalsTitle = await screen.getByRole("heading", {
-        name: expectedTitle2,
+      const animalsPostCardTitle = await screen.getByRole("heading", {
+        name: expectedAnimalsTitle,
       });
 
-      expect(postCardTitle1).toBeInTheDocument();
-      expect(expectedAnimalsTitle).toBeInTheDocument();
+      expect(bitcoinPostCardTitle).toBeInTheDocument();
+      expect(animalsPostCardTitle).toBeInTheDocument();
     });
 
     test("Then it should show the images 'Bitcoin in all time high' 'A happy dog eating' alternatives texts", async () => {
