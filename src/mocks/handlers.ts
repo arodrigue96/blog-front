@@ -7,27 +7,25 @@ if (!import.meta.env.VITE_API_URL) {
 
 export const handlers = [
   http.get(`${import.meta.env.VITE_API_URL}/posts`, () => {
-    return HttpResponse.json<{ posts: Post[] }>({
-      posts: [
-        {
-          id: 1,
-          title: "Patatas Bravas",
-          altImageText: "que en son de bones",
-          author: "",
-          date: new Date(),
-          content: "",
-          imageUrl: "",
-        },
-        {
-          id: 2,
-          title: "The Reactor Project",
-          altImageText: "el millor curs de fullstack",
-          author: "",
-          date: new Date(),
-          content: "",
-          imageUrl: "",
-        },
-      ],
-    });
+    return HttpResponse.json<Post[]>([
+      {
+        id: 1,
+        title: "Patatas Bravas",
+        altImageText: "que en son de bones",
+        author: "",
+        date: new Date(),
+        content: "",
+        imageUrl: "",
+      },
+      {
+        id: 2,
+        title: "The Reactor Project",
+        altImageText: "el millor curs de fullstack",
+        author: "",
+        date: new Date(),
+        content: "",
+        imageUrl: "",
+      },
+    ]);
   }),
 ];
