@@ -1,9 +1,12 @@
-export interface Post {
-  id: number;
+export interface PostData {
   title: string;
-  date: Date;
   author: string;
   content: string;
   imageUrl: string;
   altImageText: string;
+}
+
+export interface Post extends PostData {
+  id: number;
+  date: Date;
 }
