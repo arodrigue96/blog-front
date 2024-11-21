@@ -9,9 +9,9 @@ class PostClient implements PostClientStructure {
       method: "GET",
     });
 
-    const postsApi = (await response.json()) as Post[];
+    const { posts } = (await response.json()) as { posts: Post[] };
 
-    return postsApi;
+    return posts;
   }
 
   async createPost(postData: PostData): Promise<Post> {
