@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import PostCardsList from "../../components/PostCardsList/PostCardsList";
-import "./HomePage.css";
 import usePosts from "../../hooks/usePosts";
+import "./HomePage.css";
 
 const HomePage: React.FC = () => {
   const { posts, isLoading, fetchPosts } = usePosts();
