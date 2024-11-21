@@ -1,12 +1,14 @@
 import { http, HttpResponse } from "msw";
 import { Post } from "../post/types";
 
-if (!import.meta.env.VITE_API_URL) {
+const url = import.meta.env.VITE_API_URL;
+
+if (!url) {
   throw new Error(".Env VITE_API_URL is not defined");
 }
 
 export const handlers = [
-  http.get(`${import.meta.env.VITE_API_URL}/posts`, () => {
+  http.get(`${url}/posts`, () => {
     return HttpResponse.json<{ posts: Post[] }>({
       posts: [
         {
@@ -28,6 +30,18 @@ export const handlers = [
           imageUrl: "",
         },
       ],
+    });
+  }),
+
+  http.post(`${url}/posts`, () => {
+    return HttpResponse.json<Post>({
+      id: 3,
+      author: "Aniol",
+      title: "undostres ya no me ves",
+      content: "",
+      imageUrl: "aniol.webp",
+      altImageText: "trosco",
+      date: new Date(),
     });
   }),
 ];
