@@ -1,4 +1,6 @@
 import { render, screen } from "@testing-library/react";
+import { Provider } from "react-redux";
+import { store } from "../../store";
 import HomePage from "./HomePage";
 
 describe("Given the HomePage component", () => {
@@ -6,7 +8,11 @@ describe("Given the HomePage component", () => {
     test("Then it should show 'Loading...' while the posts data are being load", () => {
       const loadingText = /Loading.../;
 
-      render(<HomePage />);
+      render(
+        <Provider store={store}>
+          <HomePage /> ;
+        </Provider>,
+      );
 
       const userFeedBack = screen.getByText(loadingText);
 
@@ -16,7 +22,11 @@ describe("Given the HomePage component", () => {
     test("Then it should show 'Posts List' inside a heading", async () => {
       const homePageTitleText = /Posts list/i;
 
-      render(<HomePage />);
+      render(
+        <Provider store={store}>
+          <HomePage /> ;
+        </Provider>,
+      );
 
       const homePageTitle = await screen.findByRole("heading", {
         name: homePageTitleText,
@@ -29,7 +39,11 @@ describe("Given the HomePage component", () => {
       const expectedPost1Title = /Patatas Bravas/i;
       const expectedPost2Title = /The Reactor Project/i;
 
-      render(<HomePage />);
+      render(
+        <Provider store={store}>
+          <HomePage /> ;
+        </Provider>,
+      );
 
       const postCardTitle1 = await screen.findByRole("heading", {
         name: expectedPost1Title,
@@ -47,7 +61,11 @@ describe("Given the HomePage component", () => {
       const expectedPost1AltImage = /que en son de bones/i;
       const expectedPost2AltImage = /el millor curs de fullstack/i;
 
-      render(<HomePage />);
+      render(
+        <Provider store={store}>
+          <HomePage /> ;
+        </Provider>,
+      );
 
       const Post1AltImage = await screen.findByAltText(expectedPost1AltImage);
       const Post2AltImage = await screen.findByAltText(expectedPost2AltImage);
