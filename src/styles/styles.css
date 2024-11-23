@@ -53,6 +53,13 @@ button {
   color: inherit;
 }
 
+input {
+  font: inherit;
+  padding: 0;
+  border: 0;
+  color: inherit;
+}
+
 .page-title {
   margin-bottom: 30px;
   font-size: 1.5rem;
