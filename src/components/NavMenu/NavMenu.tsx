@@ -4,9 +4,10 @@ import "./NavMenu.css";
 const NavMenu: React.FC = () => {
   return (
     <nav>
-      <ul className="nav-menu">
-        <li>
+      <ul>
+        <li className="nav-menu">
           <NavLink to="/home">Posts list</NavLink>
+          <NavLink to="/new-post">Add new post</NavLink>
         </li>
       </ul>
     </nav>
