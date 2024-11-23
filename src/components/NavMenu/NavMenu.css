@@ -1,7 +1,5 @@
 .nav-menu {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   gap: 25px;
   font-size: 1.1rem;
 }
