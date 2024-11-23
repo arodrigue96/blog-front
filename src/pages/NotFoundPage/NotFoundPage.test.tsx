@@ -8,7 +8,7 @@ describe("Given the NotFoundPage component", () => {
 
       render(<NotFoundPage />);
 
-      const notFoundPageTitle = await screen.findByRole("heading", {
+      const notFoundPageTitle = screen.getByRole("heading", {
         name: notFoundPageTitleText,
       });
 
@@ -21,7 +21,7 @@ describe("Given the NotFoundPage component", () => {
 
       render(<NotFoundPage />);
 
-      const imageAltText = await screen.findByAltText(expectedImageAltText);
+      const imageAltText = screen.getByAltText(expectedImageAltText);
 
       expect(imageAltText).toBeInTheDocument();
     });

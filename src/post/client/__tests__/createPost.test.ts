@@ -1,19 +1,20 @@
+import { PostData } from "../../types";
 import PostClient from "../PostClient";
 
 describe("Given the createPost method", () => {
-  describe("When it's called with the post title 'undostres ya no me ves", () => {
-    test("Then it should return a new post", async () => {
-      const expectedTitle = /undostres ya no me ves/i;
-
-      const newPost = await new PostClient().createPost({
+  describe("When it's called and receives the post data title 'undostres ya no me ves'", () => {
+    test("Then it should return a new post with the title 'undostres ya no me ves'", async () => {
+      const postData: PostData = {
         title: "undostres ya no me ves",
         author: "",
         imageUrl: "",
         altImageText: "",
         content: "",
-      });
+      };
 
-      expect(newPost.title).toMatch(expectedTitle);
+      const newPost = await new PostClient().createPost(postData);
+
+      expect(newPost.title).toBe(postData.title);
     });
   });
 });
