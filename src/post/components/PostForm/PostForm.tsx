@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import Button from "../../../components/Button/Button";
-import "./PostForm.css";
 import usePostsForm from "../../hooks/usePostsForm";
 import { PostData } from "../../types";
+import "./PostForm.css";
 
 interface PostFormProps {
   onSubmit: (postData: PostData) => void;

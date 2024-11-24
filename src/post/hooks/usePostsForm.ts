@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { PostData } from "../types";
+import PostClient from "../client/PostClient";
 
 const usePostsForm = () => {
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
@@ -32,12 +33,19 @@ const usePostsForm = () => {
     setIsButtonDisabled(!isValid);
   };
 
+  const createPost = (postData: PostData) => {
+    const postClient = new PostClient();
+
+    postClient.createPost(postData);
+  };
+
   return {
     postData,
     updatePostData,
     buttonDisabled: isButtonDisabled,
     setButtonDisabled: setIsButtonDisabled,
     isValidForm,
+    createPost,
   };
 };
 

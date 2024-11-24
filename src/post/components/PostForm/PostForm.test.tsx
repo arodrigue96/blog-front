@@ -5,7 +5,7 @@ import PostForm from "./PostForm";
 describe("Given the PostForm component", () => {
   describe("When it's rendered", () => {
     test("Then it should show 'Title', 'Image URL', 'Alternative Text', 'Content', 'Author' fields", () => {
-      render(<PostForm />);
+      render(<PostForm onSubmit={vi.fn()} />);
 
       const titleField = screen.getByLabelText(/title/i);
       const imageUrlField = screen.getByLabelText(/image url/i);
@@ -23,7 +23,7 @@ describe("Given the PostForm component", () => {
     test("Then it should show a disabled 'Create Post' button", () => {
       const createPostButtonText = /create post/i;
 
-      render(<PostForm />);
+      render(<PostForm onSubmit={vi.fn()} />);
 
       const createPostButton = screen.getByRole("button", {
         name: createPostButtonText,
@@ -39,7 +39,7 @@ describe("Given the PostForm component", () => {
       const expectedTitleFieldText = "Undostres ya no me ves";
       const user = userEvent.setup();
 
-      render(<PostForm />);
+      render(<PostForm onSubmit={vi.fn()} />);
 
       const titleField = screen.getByLabelText(/title/i);
       await user.type(titleField, expectedTitleFieldText);
