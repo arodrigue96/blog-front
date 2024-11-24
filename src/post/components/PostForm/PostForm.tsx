@@ -2,8 +2,13 @@ import { useEffect } from "react";
 import Button from "../../../components/Button/Button";
 import "./PostForm.css";
 import usePostsForm from "../../hooks/usePostsForm";
+import { PostData } from "../../types";
 
-const PostForm: React.FC = () => {
+interface PostFormProps {
+  onSubmit: (postData: PostData) => void;
+}
+
+const PostForm: React.FC<PostFormProps> = ({ onSubmit }) => {
   const { postData, buttonDisabled, updatePostData, isValidForm } =
     usePostsForm();
   const { title, imageUrl, altImageText, content, author } = postData;
@@ -12,8 +17,14 @@ const PostForm: React.FC = () => {
     isValidForm();
   }, [isValidForm]);
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    onSubmit(postData);
+  };
+
   return (
-    <form className="form">
+    <form className="form" onSubmit={handleSubmit}>
       <div className="form__info">
         <label htmlFor="title">Title</label>
         <input
@@ -29,7 +40,7 @@ const PostForm: React.FC = () => {
         <label htmlFor="imageUrl">Image URL</label>
         <input
           className="form__input"
-          type="url"
+          type="text"
           id="imageUrl"
           value={imageUrl}
           onChange={updatePostData}
