@@ -2,7 +2,7 @@ import { useState } from "react";
 import { PostData } from "../types";
 
 const usePostsForm = () => {
-  const [buttonDisabled, setButtonDisabled] = useState(true);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
   const [postData, setPostData] = useState<PostData>({
     title: "",
@@ -29,14 +29,14 @@ const usePostsForm = () => {
       content.length > 0 &&
       author.length > 0;
 
-    setButtonDisabled(!isValid);
+    setIsButtonDisabled(!isValid);
   };
 
   return {
     postData,
     updatePostData,
-    buttonDisabled,
-    setButtonDisabled,
+    buttonDisabled: isButtonDisabled,
+    setButtonDisabled: setIsButtonDisabled,
     isValidForm,
   };
 };

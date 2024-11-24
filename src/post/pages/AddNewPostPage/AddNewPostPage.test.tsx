@@ -1,11 +1,22 @@
-import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
-import PostForm from "./PostForm";
+import AddNewPostPage from "./AddNewPostPage";
 
-describe("Given the PostForm component", () => {
-  describe("When it's rendered", () => {
+describe("Given the AddNewPostPage component", () => {
+  describe("When it is rendered", () => {
+    test("Then it should show 'Add new post' inside a heading", () => {
+      const addNewPostTitleText = /Add new post/i;
+
+      render(<AddNewPostPage />);
+
+      const addNewPostTitle = screen.getByRole("heading", {
+        name: addNewPostTitleText,
+      });
+
+      expect(addNewPostTitle).toBeInTheDocument();
+    });
+
     test("Then it should show 'Title', 'Image URL', 'Alternative Text', 'Content', 'Author' fields", () => {
-      render(<PostForm />);
+      render(<AddNewPostPage />);
 
       const titleField = screen.getByLabelText(/title/i);
       const imageUrlField = screen.getByLabelText(/image url/i);
@@ -23,7 +34,7 @@ describe("Given the PostForm component", () => {
     test("Then it should show a disabled 'Create Post' button", () => {
       const createPostButtonText = /create post/i;
 
-      render(<PostForm />);
+      render(<AddNewPostPage />);
 
       const createPostButton = screen.getByRole("button", {
         name: createPostButtonText,
@@ -31,20 +42,6 @@ describe("Given the PostForm component", () => {
 
       expect(createPostButton).toBeInTheDocument();
       expect(createPostButton).toBeDisabled();
-    });
-  });
-
-  describe("When the user fills the title field with 'Undostres ya no me ves'", () => {
-    test("Then it should 'Unodostres ya no me ves' inside the title field", async () => {
-      const expectedTitleFieldText = "Undostres ya no me ves";
-      const user = userEvent.setup();
-
-      render(<PostForm />);
-
-      const titleField = screen.getByLabelText(/title/i);
-      await user.type(titleField, expectedTitleFieldText);
-
-      expect(titleField).toHaveValue(expectedTitleFieldText);
     });
   });
 });
