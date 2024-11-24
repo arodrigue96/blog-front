@@ -19,6 +19,19 @@ describe("Given the PostForm component", () => {
       expect(contentField).toBeInTheDocument();
       expect(authorField).toBeInTheDocument();
     });
+
+    test("Then it should show a disabled 'Create Post' button", () => {
+      const createPostButtonText = /create post/i;
+
+      render(<PostForm />);
+
+      const createPostButton = screen.getByRole("button", {
+        name: createPostButtonText,
+      });
+
+      expect(createPostButton).toBeInTheDocument();
+      expect(createPostButton).toBeDisabled();
+    });
   });
 
   describe("When the user fills the title field with 'Undostres ya no me ves'", () => {
