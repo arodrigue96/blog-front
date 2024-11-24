@@ -1,12 +1,17 @@
 import { render, screen } from "@testing-library/react";
 import AddNewPostPage from "./AddNewPostPage";
+import { MemoryRouter } from "react-router-dom";
 
 describe("Given the AddNewPostPage component", () => {
   describe("When it is rendered", () => {
     test("Then it should show 'Add new post' inside a heading", () => {
       const addNewPostTitleText = /Add new post/i;
 
-      render(<AddNewPostPage />);
+      render(
+        <MemoryRouter>
+          <AddNewPostPage />
+        </MemoryRouter>,
+      );
 
       const addNewPostTitle = screen.getByRole("heading", {
         name: addNewPostTitleText,
@@ -16,7 +21,11 @@ describe("Given the AddNewPostPage component", () => {
     });
 
     test("Then it should show 'Title', 'Image URL', 'Alternative Text', 'Content', 'Author' fields", () => {
-      render(<AddNewPostPage />);
+      render(
+        <MemoryRouter>
+          <AddNewPostPage />
+        </MemoryRouter>,
+      );
 
       const titleField = screen.getByLabelText(/title/i);
       const imageUrlField = screen.getByLabelText(/image url/i);
@@ -34,7 +43,11 @@ describe("Given the AddNewPostPage component", () => {
     test("Then it should show a disabled 'Create Post' button", () => {
       const createPostButtonText = /create post/i;
 
-      render(<AddNewPostPage />);
+      render(
+        <MemoryRouter>
+          <AddNewPostPage />
+        </MemoryRouter>,
+      );
 
       const createPostButton = screen.getByRole("button", {
         name: createPostButtonText,
